@@ -10,10 +10,10 @@ export const projects = [
   {
     title: 'YouTube Trends Analytics',
     description: 'ML-powered platform analyzing YouTube trending videos, predicting view counts and engagement metrics using advanced algorithms.',
-    tech: ['Python', 'FastAPI','React', 'TensorFlow', 'Pandas', 'scikit-learn'],
+    tech: ['Python', 'FastAPI','React', 'Vite','TensorFlow', 'Pandas', 'scikit-learn', 'Nginx', 'EC2', 'Route 53'],
     image: 'https://shamasneh.s3.eu-central-1.amazonaws.com/Images/Screenshot 2024-11-29 at 14-24-08 Brandmark - make your logo in minutes.png',
-    link: '#',
-    githun: null
+    link: 'https://trendytube.shamasneh.com',
+    github: null
   },
   {
     title: 'Palestinian Accent Recognition',

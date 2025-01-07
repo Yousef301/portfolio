@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowDown, Code2, Server, Database, Briefcase, GraduationCap, Award, Brain } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { Link } from 'react-router-dom';
 
 export function Hero() {
   return (
@@ -21,7 +22,22 @@ export function Hero() {
             animate="animate"
             className="md:col-span-8"
           >
-            <motion.div variants={fadeInUp} className="space-y-2 mb-8 pt-32">
+            {/* New Project Notification */}
+            <motion.div 
+              variants={fadeInUp} 
+              className="mb-8 pt-32"
+            >
+              <Link 
+                to="/projects/pluto-ai"
+                className="group inline-flex items-center gap-2 px-4 py-2 bg-blue-500/10 backdrop-blur-sm text-blue-300 rounded-full hover:bg-blue-500/20 transition-colors border border-blue-400/20"
+              >
+                <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                New Project Added: PlutoAI
+                <span className="text-blue-300 group-hover:translate-x-0.5 transition-transform">→</span>
+              </Link>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="space-y-2 mb-8">
               <div className="flex items-center gap-2 text-blue-400 font-mono mb-8">
                 <span className="inline-block w-12 h-[1px] bg-blue-400" />
                 <span>Hi, my name is</span>

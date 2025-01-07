@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: 'PlutoAI',
+    description: 'A versatile AI platform leveraging cutting-edge language models including Llama 3.1, Gemini Flash, and DeepSeek v3. Features seamless integration of image generation, multilingual support, and advanced voice interactions, enabling natural and dynamic AI-powered conversations.',
+    tech: ['C#', '.NET Core', 'Python', 'FastAPI', 'React', 'TypeScript', 'Vite', 'OAuth', 'MS SQL Server', 'FAISS', 'Docker', 'Nginx','Route 53', 'GCP', 'LLMs', 'OCR', 'Whisper'],
+    image: 'https://plutoai.s3.eu-central-1.amazonaws.com/full_logo_no_bg.png?w=300',
+    link: 'https://plutoai.shamasneh.com/',
+    github: 'https://github.com/Yousef301/PlutoAI'
+  },
+  {
     title: 'Hotel Booking Platform APIs',
     description: 'A comprehensive hotel booking system built with .NET Core, featuring secure payment processing, real-time availability, and cloud deployment.',
     tech: ['C#', '.NET Core', 'MS SQL Server', 'Stripe', 'AWS'],

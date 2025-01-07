@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Github, ChevronRight, Sparkles, Zap, Layers, Cpu, Wrench } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, ChevronRight, Sparkles, Zap, Layers, Cpu, Wrench, X } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { projects } from '../data/projects';
 
@@ -16,6 +16,7 @@ const FeatureIcons = {
 export function PlutoAI() {
   const plutoProject = projects.find(p => p.title === 'PlutoAI');
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -220,18 +221,20 @@ export function PlutoAI() {
                       </div>
                     )
                   }
-                ].map(({ title, description, icon: Icon, demo }) => (
+                ].map((feature, index) => (
                   <motion.div
-                    key={title}
+                    key={feature.title}
                     variants={fadeInUp}
-                    className="p-6 rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-100 hover:border-blue-100 transition-colors group"
+                    custom={index}
+                    className="relative group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
-                      <Icon className="w-6 h-6 text-blue-500" />
+                    <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-[2rem] blur-3xl opacity-0 group-hover:opacity-10 transition-all duration-700" />
+                    <div className="relative bg-gradient-to-br from-white to-slate-50/80 rounded-[2rem] p-8 border border-slate-200/50 shadow-sm backdrop-blur-sm">
+                      <feature.icon className="w-12 h-12 text-blue-500 mb-6" />
+                      <h3 className="text-2xl font-bold text-slate-900 mb-4">{feature.title}</h3>
+                      <p className="text-slate-600 mb-6">{feature.description}</p>
+                      {feature.demo}
                     </div>
-                    <h3 className="text-lg font-semibold text-slate-900 mb-2">{title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{description}</p>
-                    {demo && demo}
                   </motion.div>
                 ))}
               </div>
@@ -278,6 +281,26 @@ export function PlutoAI() {
                     <p className="text-slate-600">Deployed on Google Cloud Platform using containerized microservices with Docker, enabling easy scaling and maintenance. Nginx serves as a reverse proxy with SSL/TLS encryption, ensuring secure communication. The infrastructure includes automated backup systems and monitoring tools for optimal performance and reliability.</p>
                   </div>
                 </div>
+              </div>
+
+              <div className="mb-16">
+                <h2 className="text-4xl font-bold text-slate-900 mb-8 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-blue-900">
+                  System Architecture
+                </h2>
+                <motion.div
+                  variants={fadeInUp}
+                  className="relative group mb-12"
+                >
+                  <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-[2rem] blur-3xl opacity-0 group-hover:opacity-10 transition-all duration-700" />
+                  <div className="relative bg-gradient-to-br from-white to-slate-50/80 rounded-[2rem] p-8 border border-slate-200/50 shadow-sm backdrop-blur-sm">
+                    <img 
+                      src="https://plutoai.s3.eu-central-1.amazonaws.com/plutoai_architecture.png"
+                      alt="PlutoAI System Architecture"
+                      className="w-full rounded-xl shadow-lg cursor-pointer"
+                      onClick={() => setShowModal(true)}
+                    />
+                  </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
@@ -338,6 +361,43 @@ export function PlutoAI() {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 overflow-y-auto bg-black/80"
+            onClick={() => setShowModal(false)}
+          >
+            <div className="min-h-screen p-4 flex items-center justify-center">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative w-full max-w-[90vw]"
+                onClick={e => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="absolute -top-12 right-0 text-white hover:text-blue-400 transition-colors"
+                >
+                  <X className="w-8 h-8" />
+                </button>
+                <img
+                  src="https://plutoai.s3.eu-central-1.amazonaws.com/plutoai_architecture.png"
+                  alt="PlutoAI System Architecture"
+                  className="w-full rounded-xl"
+                />
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
+
+export default PlutoAI;

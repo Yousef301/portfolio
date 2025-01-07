@@ -223,16 +223,20 @@ export function PlutoAI() {
                   }
                 ].map((feature, index) => (
                   <motion.div
-                    key={feature.title}
+                    key={index}
+                    className="relative group"
                     variants={fadeInUp}
                     custom={index}
-                    className="relative group"
                   >
                     <div className="absolute -inset-4 bg-gradient-to-r from-blue-400 to-blue-600 rounded-[2rem] blur-3xl opacity-0 group-hover:opacity-10 transition-all duration-700" />
                     <div className="relative bg-gradient-to-br from-white to-slate-50/80 rounded-[2rem] p-8 border border-slate-200/50 shadow-sm backdrop-blur-sm">
-                      <feature.icon className="w-12 h-12 text-blue-500 mb-6" />
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4">{feature.title}</h3>
-                      <p className="text-slate-600 mb-6">{feature.description}</p>
+                      <div className="flex items-start space-x-4">
+                        <feature.icon className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-slate-900">{feature.title}</h3>
+                          <p className="text-slate-600 mt-2">{feature.description}</p>
+                        </div>
+                      </div>
                       {feature.demo}
                     </div>
                   </motion.div>

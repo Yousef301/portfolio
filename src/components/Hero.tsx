@@ -113,7 +113,7 @@ export function Hero() {
                 <Briefcase className="w-4 h-4 text-blue-400" />
                 <h3 className="font-medium text-sm">Current Role</h3>
               </div>
-              <p className="text-slate-400 text-sm">Seeking for a Job</p>
+              <p className="text-slate-400 text-sm">Freelancer Developer</p>
             </motion.div>
 
             <motion.div

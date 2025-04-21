@@ -112,7 +112,7 @@ export function PlutoAI() {
                 className="block w-full h-full relative z-10 aspect-video"
               >
                 <iframe
-                  src="https://streamable.com/e/q3o5hz?autoplay=1&amp;hd=1"
+                  src="https://vimeo.com/1077320121"
                   frameBorder="0"
                   allowFullScreen
                   className="w-full h-full"
@@ -142,7 +142,7 @@ export function PlutoAI() {
                     demo: (
                       <div className="relative aspect-video rounded-xl overflow-hidden mt-4">
                         <iframe
-                          src="https://streamable.com/e/vt2lud"
+                          src="https://vimeo.com/1077320160"
                           frameBorder="0"
                           width="100%"
                           height="100%"
@@ -159,7 +159,7 @@ export function PlutoAI() {
                     demo: (
                       <div className="relative aspect-video rounded-xl overflow-hidden mt-4">
                         <iframe
-                          src="https://streamable.com/e/mi6fal"
+                          src="https://vimeo.com/1077320099"
                           frameBorder="0"
                           width="100%"
                           height="100%"
@@ -176,7 +176,7 @@ export function PlutoAI() {
                     demo: (
                       <div className="relative rounded-xl overflow-hidden mt-4 aspect-video">
                         <iframe
-                          src="https://streamable.com/e/yytidv?quality=720p"
+                          src="https://vimeo.com/1077320059"
                           width="1280"
                           height="720"
                           frameBorder="0"
@@ -194,7 +194,7 @@ export function PlutoAI() {
                     demo: (
                       <div className="relative aspect-video rounded-xl overflow-hidden mt-4">
                         <iframe
-                          src="https://streamable.com/e/hudj7g"
+                          src="https://vimeo.com/1077320077"
                           frameBorder="0"
                           width="100%"
                           height="100%"
@@ -211,7 +211,7 @@ export function PlutoAI() {
                     demo: (
                       <div className="relative aspect-video rounded-xl overflow-hidden mt-4">
                         <iframe
-                          src="https://streamable.com/e/p3ls20"
+                          src="https://vimeo.com/1077320190"
                           frameBorder="0"
                           width="100%"
                           height="100%"
